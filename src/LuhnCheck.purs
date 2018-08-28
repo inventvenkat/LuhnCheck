@@ -1,4 +1,4 @@
-module LuhnCheck where
+module LuhnCheck(luhnCheck) where
 
 import Prelude
 
@@ -9,16 +9,25 @@ import Data.Number (fromString)
 import Data.String (Pattern(..), Replacement(..), replaceAll, split)
 import Math (remainder)
 
--- card Luhn check
+-- | ---------------- Luhn Algo -----------------
+-- | Reverse the card number
+-- | sum <- 0
+-- |    if odd_position then
+-- |      sum += mulitplies then num[i] by 2 and mod by 9 
+-- |    else 
+-- |      sum += num[i]
+-- | check it is divisible by 10
+
+-- Card Luhn check
 luhnCheck :: String -> Boolean
 luhnCheck cardNumber = 
-  let ref = reverse $ flip split cardNumber $ Pattern ""
+  let ref = reverse $ flip split (replaceSpace cardNumber) $ Pattern ""
       sum = luhnSum 0 ref in
   (remainder sum 10.0) == 0.0 && (length ref /= 0) && sum /= 0.0
   
 -- Ignores Spaces
-luhnCheck' :: String -> Boolean
-luhnCheck' cardNumber = luhnCheck $ replaceAll (Pattern " ") (Replacement "") cardNumber
+replaceSpace :: String -> String
+replaceSpace = replaceAll (Pattern " ") (Replacement "")
 
 luhnSum :: Int -> Array String -> Number
 luhnSum _ [] = 0.0
