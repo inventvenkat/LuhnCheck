@@ -9,13 +9,20 @@ import Data.Number (fromString)
 import Data.String (Pattern(..), Replacement(..), replaceAll, split)
 import Math (remainder)
 
--- | ---------------- Luhn Algo -----------------
+-- |        Luhn Algo 
+-- |
 -- | Reverse the card number
--- | sum <- 0
--- |    if odd_position then
--- |      sum += mulitplies then num[i] by 2 and mod by 9 
+-- |
+-- | `sum <- 0`
+-- |
+-- |    if `odd_position` then
+-- |
+-- |      `sum += mulitplies then num[i] by 2 and mod by 9`
+-- |
 -- |    else 
--- |      sum += num[i]
+-- |
+-- |      `sum += num[i]`
+-- |
 -- | check it is divisible by 10
 
 -- Card Luhn check
