@@ -1,5 +1,6 @@
 {
   "name": "purescript-luhncheck",
+  "license": "MIT",
   "ignore": [
     "**/.*",
     "node_modules",
