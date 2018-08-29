@@ -1,4 +1,4 @@
-module LuhnCheck(luhnCheck,checkAlpha) where
+module LuhnCheck(luhnCheck) where
 
 import Prelude
 
