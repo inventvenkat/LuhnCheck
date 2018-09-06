@@ -42,7 +42,7 @@ luhnSum _ [] = 0
 luhnSum i xs = 
   let firstNumber = fromMaybe 0 $ fromString =<< head xs in
   if odd i
-    then (mod (2 * firstNumber) 9) + (fromMaybe 0 (luhnSum (i+1) <$> tail xs))
+    then (if (2 * firstNumber) > 9 then ((mod (2 * firstNumber) 10) + 1) else (2 * firstNumber)) + (fromMaybe 0 (luhnSum (i+1) <$> tail xs))
     else firstNumber + (fromMaybe 0 (luhnSum (i+1) <$> tail xs))
 
 checkRegex :: String -> String -> Either String String
